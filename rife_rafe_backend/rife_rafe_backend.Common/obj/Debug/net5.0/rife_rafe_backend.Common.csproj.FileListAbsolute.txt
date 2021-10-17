@@ -1,0 +1,12 @@
+F:\ITM\Distribuida\ProyectoFinal\Monolitic\rife_rafe_backend\rife_rafe_backend.Common\bin\Debug\net5.0\rife_rafe_backend.Common.deps.json
+F:\ITM\Distribuida\ProyectoFinal\Monolitic\rife_rafe_backend\rife_rafe_backend.Common\bin\Debug\net5.0\rife_rafe_backend.Common.dll
+F:\ITM\Distribuida\ProyectoFinal\Monolitic\rife_rafe_backend\rife_rafe_backend.Common\bin\Debug\net5.0\ref\rife_rafe_backend.Common.dll
+F:\ITM\Distribuida\ProyectoFinal\Monolitic\rife_rafe_backend\rife_rafe_backend.Common\bin\Debug\net5.0\rife_rafe_backend.Common.pdb
+F:\ITM\Distribuida\ProyectoFinal\Monolitic\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\rife_rafe_backend.Common.csproj.AssemblyReference.cache
+F:\ITM\Distribuida\ProyectoFinal\Monolitic\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\rife_rafe_backend.Common.GeneratedMSBuildEditorConfig.editorconfig
+F:\ITM\Distribuida\ProyectoFinal\Monolitic\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\rife_rafe_backend.Common.AssemblyInfoInputs.cache
+F:\ITM\Distribuida\ProyectoFinal\Monolitic\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\rife_rafe_backend.Common.AssemblyInfo.cs
+F:\ITM\Distribuida\ProyectoFinal\Monolitic\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\rife_rafe_backend.Common.csproj.CoreCompileInputs.cache
+F:\ITM\Distribuida\ProyectoFinal\Monolitic\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\rife_rafe_backend.Common.dll
+F:\ITM\Distribuida\ProyectoFinal\Monolitic\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\ref\rife_rafe_backend.Common.dll
+F:\ITM\Distribuida\ProyectoFinal\Monolitic\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\rife_rafe_backend.Common.pdb

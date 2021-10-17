@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rife_rafe_backend", "rife_rafe_backend\rife_rafe_backend.csproj", "{2A43A4B8-2FEA-415E-847D-78E9BDF6FD5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rife_rafe_backend", "rife_rafe_backend\rife_rafe_backend.csproj", "{2A43A4B8-2FEA-415E-847D-78E9BDF6FD5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rife_rafe_backend.Common", "rife_rafe_backend.Common\rife_rafe_backend.Common.csproj", "{285EDF12-2468-4D40-B5CD-56F9F249FCB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2A43A4B8-2FEA-415E-847D-78E9BDF6FD5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A43A4B8-2FEA-415E-847D-78E9BDF6FD5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A43A4B8-2FEA-415E-847D-78E9BDF6FD5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{285EDF12-2468-4D40-B5CD-56F9F249FCB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{285EDF12-2468-4D40-B5CD-56F9F249FCB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{285EDF12-2468-4D40-B5CD-56F9F249FCB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{285EDF12-2468-4D40-B5CD-56F9F249FCB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

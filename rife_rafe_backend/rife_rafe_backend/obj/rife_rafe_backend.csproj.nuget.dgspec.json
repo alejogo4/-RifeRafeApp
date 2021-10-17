@@ -1,21 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documnetos\\Proyecto Alejo Rife Rafe\\RifeRafe\\rife_rafe_backend\\rife_rafe_backend\\rife_rafe_backend.csproj": {}
+    "F:\\ITM\\Distribuida\\ProyectoFinal\\Monolitic\\rife_rafe_backend\\rife_rafe_backend\\rife_rafe_backend.csproj": {}
   },
   "projects": {
-    "D:\\Documnetos\\Proyecto Alejo Rife Rafe\\RifeRafe\\rife_rafe_backend\\rife_rafe_backend\\rife_rafe_backend.csproj": {
+    "F:\\ITM\\Distribuida\\ProyectoFinal\\Monolitic\\rife_rafe_backend\\rife_rafe_backend\\rife_rafe_backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documnetos\\Proyecto Alejo Rife Rafe\\RifeRafe\\rife_rafe_backend\\rife_rafe_backend\\rife_rafe_backend.csproj",
+        "projectUniqueName": "F:\\ITM\\Distribuida\\ProyectoFinal\\Monolitic\\rife_rafe_backend\\rife_rafe_backend\\rife_rafe_backend.csproj",
         "projectName": "rife_rafe_backend",
-        "projectPath": "D:\\Documnetos\\Proyecto Alejo Rife Rafe\\RifeRafe\\rife_rafe_backend\\rife_rafe_backend\\rife_rafe_backend.csproj",
-        "packagesPath": "C:\\Users\\JuanDa\\.nuget\\packages\\",
-        "outputPath": "D:\\Documnetos\\Proyecto Alejo Rife Rafe\\RifeRafe\\rife_rafe_backend\\rife_rafe_backend\\obj\\",
+        "projectPath": "F:\\ITM\\Distribuida\\ProyectoFinal\\Monolitic\\rife_rafe_backend\\rife_rafe_backend\\rife_rafe_backend.csproj",
+        "packagesPath": "C:\\Users\\alejo\\.nuget\\packages\\",
+        "outputPath": "F:\\ITM\\Distribuida\\ProyectoFinal\\Monolitic\\rife_rafe_backend\\rife_rafe_backend\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\JuanDa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\alejo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -85,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
