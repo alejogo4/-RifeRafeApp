@@ -10,6 +10,9 @@ namespace rife_rafe_backend.Data.Entities
     {
         public int Id { get; set; }
 
+        [Display(Name = "Tipo")]
+        public int OfferId { get; set; }
+
         [Display(Name = "Precio de la boleta")]
         [DisplayFormat(DataFormatString = "{0:C2}")]
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]

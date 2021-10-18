@@ -12,7 +12,9 @@ namespace rife_rafe_backend.Data.Entities
 
         [Display(Name = "Categoría del producto")]
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        public Category Category { get; set; }
+        public int CategoryId { get; set; }
+
+        public int UserId { get; set; }
 
 
         [Display(Name = "Titulo")]
@@ -38,6 +40,8 @@ namespace rife_rafe_backend.Data.Entities
 
         public ICollection<ProductPhoto> ProductPhoto { get; set; }
 
+        public ICollection<Offer> Offer { get; set; }
+
         [Display(Name = "# Fotos")]
         public int ProductPhotosCount => ProductPhoto == null ? 0 : ProductPhoto.Count;
 
@@ -47,13 +51,11 @@ namespace rife_rafe_backend.Data.Entities
             : ProductPhoto.FirstOrDefault().ImageFullPath;
 
 
-        //@TODO: Asociar con user
-        /*
-        [Display(Name = "Propietario")]
         [JsonIgnore]
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public User User { get; set; }
-        */
+
+        public Category Category { get; set; }
+
 
     }
 }

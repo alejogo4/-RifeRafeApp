@@ -15,10 +15,12 @@ namespace rife_rafe_backend.Data.Entities
 
         [Display(Name = "Producto")]
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        public Product Product { get; set; }
+        public int ProductId { get; set; }
+
+        
 
 
-        [Display(Name = "Fecha de cierre de la subasta")]
+        [Display(Name = "Fecha de cierre")]
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd hh:mm tt}")]
         public DateTime ClosingDate { get; set; }
@@ -30,5 +32,10 @@ namespace rife_rafe_backend.Data.Entities
         [DisplayFormat(DataFormatString = "{0:C2}")]
         public decimal TradePrice { get; set; }
 
+        public ICollection<Applicants> Applicants { get; set; }
+
+
+
+        public Product Product { get; set; }
     }
 }

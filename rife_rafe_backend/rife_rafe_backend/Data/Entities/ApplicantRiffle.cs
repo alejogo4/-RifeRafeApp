@@ -28,12 +28,5 @@ namespace rife_rafe_backend.Data.Entities
         public int Number { get; set; }
 
 
-        //@TODO: Asociar con user
-        /*
-        [Display(Name = "Propietario")]
-        [JsonIgnore]
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        public User User { get; set; }
-        */
     }
 }

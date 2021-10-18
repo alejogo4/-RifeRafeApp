@@ -12,6 +12,8 @@ using rife_rafe_backend.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using rife_rafe_backend.Data.Entities;
+using rife_rafe_backend.Helpers;
 
 namespace rife_rafe_backend
 {
@@ -27,14 +29,32 @@ namespace rife_rafe_backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddRazorPages();
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<User, IdentityRole>(x =>
+            {
+                x.Tokens.AuthenticatorTokenProvider = TokenOptions.DefaultAuthenticatorProvider;
+                x.SignIn.RequireConfirmedEmail = true;
+                x.User.RequireUniqueEmail = true;
+                x.Password.RequireDigit = false;
+                x.Password.RequiredUniqueChars = 0;
+                x.Password.RequireLowercase = false;
+                x.Password.RequireNonAlphanumeric = false;
+                x.Password.RequireUppercase = false;
+            })
+                  .AddDefaultTokenProviders()
+                  .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+
+            services.AddScoped<ICombosHelper, CombosHelper>();
+            services.AddScoped<IMailHelper, MailHelper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -27,14 +27,5 @@ namespace rife_rafe_backend.Data.Entities
         [DisplayFormat(DataFormatString = "{0:C2}")]
         public decimal Price { get; set; }
 
-
-        //@TODO: Asociar con user
-        /*
-        [Display(Name = "Propietario")]
-        [JsonIgnore]
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        public User User { get; set; }
-        */
-
     }
 }

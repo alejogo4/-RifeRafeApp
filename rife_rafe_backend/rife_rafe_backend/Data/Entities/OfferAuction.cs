@@ -10,6 +10,9 @@ namespace rife_rafe_backend.Data.Entities
     {
         public int Id { get; set; }
 
+        [Display(Name = "Tipo")]
+        public int OfferId { get; set; }
+
         [Display(Name = "Precio inicial de la subasta")]
         [DisplayFormat(DataFormatString = "{0:C2}")]
         public decimal BasePrice;

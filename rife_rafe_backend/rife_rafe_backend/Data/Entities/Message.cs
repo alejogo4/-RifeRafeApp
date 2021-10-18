@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace rife_rafe_backend.Data.Entities
 {
@@ -6,22 +8,25 @@ namespace rife_rafe_backend.Data.Entities
     {
         public int Id { get; set; }
 
+        [ForeignKey("User")]
+        public int IdReceived { get; set; }
+
+        [ForeignKey("User")]
         public int IdSender { get; set; }
 
-        public int IdUser { get; set; }
+       
 
 
         [Display(Name = "Mensaje")]
         [DataType(DataType.MultilineText)]
         public string MessageTxt { get; set; }
 
-        //@TODO: Asociar con user
-        /*
-        [Display(Name = "Propietario")]
+
+        
         [JsonIgnore]
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public User User { get; set; }
-        */
+
+
 
     }
 }
