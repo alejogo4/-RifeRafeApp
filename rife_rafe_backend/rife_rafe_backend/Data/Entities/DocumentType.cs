@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace rife_rafe_backend.Data.Entities
 {
@@ -11,10 +13,8 @@ namespace rife_rafe_backend.Data.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public string Description { get; set; }
 
-        //@TODO: Relacion con users
-        /*
         [JsonIgnore]
         public ICollection<User> Users { get; set; }
-        */
+       
     }
 }

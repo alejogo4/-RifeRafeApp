@@ -69,3 +69,67 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+
+/* ============================== PRODUCTOS =========================*/
+
+
+.products-container .card {
+    width: 250px;
+    border-radius: 10px
+}
+
+.products-container .card-img-top {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px
+}
+
+.products-container span.text-muted {
+    font-size: 12px
+}
+
+.products-container small.text-muted {
+    font-size: 8px
+}
+
+.products-container h5.mb-0 {
+    font-size: 1rem
+}
+
+.products-container small.ghj {
+    font-size: 9px
+}
+
+.products-container .mid {
+    background: #ECEDF1
+}
+
+h6.ml-1 {
+    font-size: 13px
+}
+
+.products-container small.key {
+    text-decoration: underline;
+    font-size: 9px;
+    cursor: pointer
+}
+
+.products-container .btn-danger {
+    color: #FFCBD2
+}
+
+    .products-container .btn-danger:focus {
+        box-shadow: none
+    }
+
+.products-container small.justify-content-center {
+    font-size: 9px;
+    cursor: pointer;
+    text-decoration: underline
+}
+
+@media screen and (max-width:600px) {
+    .col-sm-4 {
+        margin-bottom: 50px
+    }
+}

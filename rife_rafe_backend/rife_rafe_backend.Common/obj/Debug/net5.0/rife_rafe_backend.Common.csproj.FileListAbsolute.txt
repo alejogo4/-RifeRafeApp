@@ -10,3 +10,15 @@ F:\ITM\Distribuida\ProyectoFinal\Monolitic\rife_rafe_backend\rife_rafe_backend.C
 F:\ITM\Distribuida\ProyectoFinal\Monolitic\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\rife_rafe_backend.Common.dll
 F:\ITM\Distribuida\ProyectoFinal\Monolitic\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\ref\rife_rafe_backend.Common.dll
 F:\ITM\Distribuida\ProyectoFinal\Monolitic\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\rife_rafe_backend.Common.pdb
+D:\Documnetos\Proyecto Alejo Rife Rafe\RifeRafe\rife_rafe_backend\rife_rafe_backend.Common\bin\Debug\net5.0\rife_rafe_backend.Common.deps.json
+D:\Documnetos\Proyecto Alejo Rife Rafe\RifeRafe\rife_rafe_backend\rife_rafe_backend.Common\bin\Debug\net5.0\rife_rafe_backend.Common.dll
+D:\Documnetos\Proyecto Alejo Rife Rafe\RifeRafe\rife_rafe_backend\rife_rafe_backend.Common\bin\Debug\net5.0\ref\rife_rafe_backend.Common.dll
+D:\Documnetos\Proyecto Alejo Rife Rafe\RifeRafe\rife_rafe_backend\rife_rafe_backend.Common\bin\Debug\net5.0\rife_rafe_backend.Common.pdb
+D:\Documnetos\Proyecto Alejo Rife Rafe\RifeRafe\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\rife_rafe_backend.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documnetos\Proyecto Alejo Rife Rafe\RifeRafe\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\rife_rafe_backend.Common.AssemblyInfoInputs.cache
+D:\Documnetos\Proyecto Alejo Rife Rafe\RifeRafe\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\rife_rafe_backend.Common.AssemblyInfo.cs
+D:\Documnetos\Proyecto Alejo Rife Rafe\RifeRafe\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\rife_rafe_backend.Common.csproj.CoreCompileInputs.cache
+D:\Documnetos\Proyecto Alejo Rife Rafe\RifeRafe\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\rife_rafe_backend.Common.dll
+D:\Documnetos\Proyecto Alejo Rife Rafe\RifeRafe\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\ref\rife_rafe_backend.Common.dll
+D:\Documnetos\Proyecto Alejo Rife Rafe\RifeRafe\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\rife_rafe_backend.Common.pdb
+D:\Documnetos\Proyecto Alejo Rife Rafe\RifeRafe\rife_rafe_backend\rife_rafe_backend.Common\obj\Debug\net5.0\rife_rafe_backend.Common.csproj.AssemblyReference.cache

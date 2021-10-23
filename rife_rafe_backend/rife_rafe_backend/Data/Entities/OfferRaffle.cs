@@ -18,7 +18,6 @@ namespace rife_rafe_backend.Data.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public decimal Price;
 
-
         [Display(Name = "¿De cuantos digitos es la boleta?")]
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public int Digits;

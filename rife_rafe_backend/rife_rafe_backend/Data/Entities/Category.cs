@@ -15,7 +15,7 @@ namespace rife_rafe_backend.Data.Entities
 
         public Guid ImageId { get; set; }
 
-        public ICollection<Product> Product { get; set; }
+        public virtual ICollection<Product> Product { get; set; }
 
         //@TODO: crear blob storage
         [Display(Name = "Foto")]

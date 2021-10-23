@@ -13,7 +13,6 @@ namespace rife_rafe_backend.Data.Entities
         [Display(Name = "Foto")]
         public Guid ImageId { get; set; }
 
-
         //@TODO: crear blob storage
         [Display(Name = "Foto")]
         public string ImageFullPath => ImageId == Guid.Empty

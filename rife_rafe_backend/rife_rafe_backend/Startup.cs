@@ -1,19 +1,19 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using rife_rafe_backend.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using rife_rafe_backend.Data;
 using rife_rafe_backend.Data.Entities;
 using rife_rafe_backend.Helpers;
+using System;
+using System.Text;
+
+
 
 namespace rife_rafe_backend
 {
@@ -29,6 +29,7 @@ namespace rife_rafe_backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            byte[] key = Encoding.ASCII.GetBytes(Configuration.GetValue<string>("SecretKey"));
 
             services.AddRazorPages();
 
@@ -39,7 +40,6 @@ namespace rife_rafe_backend
 
             services.AddIdentity<User, IdentityRole>(x =>
             {
-                x.Tokens.AuthenticatorTokenProvider = TokenOptions.DefaultAuthenticatorProvider;
                 x.SignIn.RequireConfirmedEmail = true;
                 x.User.RequireUniqueEmail = true;
                 x.Password.RequireDigit = false;
@@ -48,13 +48,45 @@ namespace rife_rafe_backend
                 x.Password.RequireNonAlphanumeric = false;
                 x.Password.RequireUppercase = false;
             })
-                  .AddDefaultTokenProviders()
+                .AddDefaultTokenProviders()
                   .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
+            services.AddDistributedMemoryCache();
+            services.AddHttpContextAccessor();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromDays(1);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
+            services.AddTransient<SeedDB>();
             services.AddControllersWithViews();
-
-
             services.AddScoped<ICombosHelper, CombosHelper>();
             services.AddScoped<IMailHelper, MailHelper>();
+            services.AddScoped<IBlobHelper, BlobHelper>();
+
+
+
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -79,13 +111,18 @@ namespace rife_rafe_backend
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseSession();
+
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Auth}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
+
+
     }
 }

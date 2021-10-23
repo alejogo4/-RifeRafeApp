@@ -17,7 +17,6 @@ namespace rife_rafe_backend.Data.Entities
         [DisplayFormat(DataFormatString = "{0:C2}")]
         public decimal BasePrice;
 
-
         [Display(Name = "Intervalos minimos de subasta")]
         [DisplayFormat(DataFormatString = "{0:C2}")]
         public decimal Ratio;

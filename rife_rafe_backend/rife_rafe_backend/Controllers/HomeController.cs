@@ -3,24 +3,25 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using rife_rafe_backend.Models;
 
 namespace rife_rafe_backend.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger) : base()
         {
             _logger = logger;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return this.validateSession("index");
         }
 
         public IActionResult Privacy()

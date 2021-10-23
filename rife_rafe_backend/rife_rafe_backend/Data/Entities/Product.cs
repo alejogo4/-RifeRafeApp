@@ -9,13 +9,11 @@ namespace rife_rafe_backend.Data.Entities
     {
         public int Id { get; set; }
 
-
         [Display(Name = "Categoría del producto")]
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public int CategoryId { get; set; }
 
-        public int UserId { get; set; }
-
+        public string UserId { get; set; }
 
         [Display(Name = "Titulo")]
         [MaxLength(100, ErrorMessage = "El campo {0} no puede tener más de {1} carácteres.")]
@@ -37,10 +35,9 @@ namespace rife_rafe_backend.Data.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public string TermsAndConditions { get; set; }
 
+        public virtual ICollection<ProductPhoto> ProductPhoto { get; set; }
 
-        public ICollection<ProductPhoto> ProductPhoto { get; set; }
-
-        public ICollection<Offer> Offer { get; set; }
+        public virtual ICollection<Offer> Offer { get; set; }
 
         [Display(Name = "# Fotos")]
         public int ProductPhotosCount => ProductPhoto == null ? 0 : ProductPhoto.Count;
@@ -53,9 +50,7 @@ namespace rife_rafe_backend.Data.Entities
 
         [JsonIgnore]
         public User User { get; set; }
-
+        [JsonIgnore]
         public Category Category { get; set; }
-
-
     }
 }

@@ -6,7 +6,6 @@
 }
 
 <h1>Index</h1>
-
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -29,26 +28,24 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Features)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TermsAndConditions)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
     </tbody>
 </table>
+
+
+@section Scripts {
+    <script>
+        $(() => {
+            $.ajax({
+                url: '/api/products',
+                type: 'get',
+                dataType: 'json',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+            }).done(response => {
+                console.log(response);
+            });
+        });
+    </script>
+}
+

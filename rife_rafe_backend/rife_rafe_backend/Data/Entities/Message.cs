@@ -6,27 +6,24 @@ namespace rife_rafe_backend.Data.Entities
 {
     public class Message
     {
+        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [ForeignKey("User")]
-        public int IdReceived { get; set; }
+        [ForeignKey("Received")]
+        public string ReceivedId { get; set; }
 
-        [ForeignKey("User")]
-        public int IdSender { get; set; }
-
-       
-
+        [ForeignKey("Sender")]
+        public string SenderId { get; set; }
 
         [Display(Name = "Mensaje")]
         [DataType(DataType.MultilineText)]
         public string MessageTxt { get; set; }
 
-
-        
         [JsonIgnore]
-        public User User { get; set; }
+        public virtual User Received { get; set; }
 
-
-
+        [JsonIgnore]
+        public virtual User Sender { get; set; }
     }
 }

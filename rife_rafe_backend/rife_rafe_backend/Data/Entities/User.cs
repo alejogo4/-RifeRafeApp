@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using rife_rafe_backend.Common.Enums;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace rife_rafe_backend.Data.Entities
 {
@@ -20,6 +21,8 @@ namespace rife_rafe_backend.Data.Entities
 
         [Display(Name = "Tipo de documento")]
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        public int DocumentTypeId { get; set; }
+
         public DocumentType DocumentType { get; set; }
 
         [Display(Name = "Documento")]
@@ -40,16 +43,25 @@ namespace rife_rafe_backend.Data.Entities
             : $"https://vehicleszulu.blob.core.windows.net/users/{ImageId}";
 
         [Display(Name = "Tipo de usuario")]
+
         public UserType UserType { get; set; }
 
         [Display(Name = "Usuario")]
         public string FullName => $"{FirstName} {LastName}";
 
-        public ICollection<Product> Product { get; set; }
+        public virtual ICollection<Product> Product { get; set; }
 
-        public ICollection<Message> Message { get; set; }
+        [InverseProperty("Received")]
+        public virtual ICollection<Message> Received { get; set; }
 
-        public ICollection<Evaluation> Evaluation { get; set; }
+        [InverseProperty("Sender")]
+        public virtual ICollection<Message> Sender { get; set; }
+
+        [InverseProperty("Evaluator")]
+        public virtual ICollection<Evaluation> Evaluator { get; set; }
+
+        [InverseProperty("User")]
+        public virtual ICollection<Evaluation> Evaluation { get; set; }
 
     }
 }

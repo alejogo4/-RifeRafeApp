@@ -1,0 +1,103 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form id="register" method="post" onsubmit="register(); return false;">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Create a new account.</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label asp-for="DocumentTypeId"></label>
+                    <select asp-for="DocumentTypeId" asp-items="@(new SelectList((List<rife_rafe_backend.Data.Entities.DocumentType>)ViewData["DocumentType"], "Id", "Description"))" class="custom-select">
+                        <option>Seleccione</option>
+                    </select>
+                    <span asp-validation-for="DocumentTypeId" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label asp-for="Document"></label>
+                    <input asp-for="Document" class="form-control" />
+                    <span asp-validation-for="Document" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label asp-for="ImageId"></label>
+                    <input asp-for="ImageId" class="form-control" />
+                    <span asp-validation-for="ImageId" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label asp-for="FirstName"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label asp-for="Address"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label asp-for="PhoneNumber"></label>
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+
+        </div>
+
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function register() {
+            if ($("#register").valid()) {
+                $.ajax({
+                    url: '/api/auth/register',
+                    type: 'post',
+                    dataType: 'json',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    data: JSON.stringify({
+                        "Email": $("input[name=Email]").val(),
+                        "Password": $("input[name=Password]").val(),
+                        "DocumentTypeId": $("select[name=DocumentTypeId]").val(),
+                        "Document": $("input[name=Document]").val(),
+                        "FirstName": $("input[name=FirstName]").val(),
+                        "LastName": $("input[name=LastName]").val(),
+                        "Address": $("input[name=Address]").val(),
+                        "PhoneNumber": $("input[name=PhoneNumber]").val()
+                    }),
+                }).done(response => {
+                    if (response?.status) {
+                        toastr.success('Registro realizado correctamente, revisa el correo')
+                    }
+                });
+                return false;
+            } else {
+                return false;
+            }
+        }
+    </script>
+}

@@ -150,6 +150,64 @@ namespace rife_rafe_backend.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("rife_rafe_backend.Data.Entities.ApplicantAuction", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ApplicantAuction");
+                });
+
+            modelBuilder.Entity("rife_rafe_backend.Data.Entities.ApplicantRiffle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ApplicantRiffle");
+                });
+
+            modelBuilder.Entity("rife_rafe_backend.Data.Entities.Applicants", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("OfferId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OfferId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Applicants");
+                });
+
             modelBuilder.Entity("rife_rafe_backend.Data.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -187,6 +245,140 @@ namespace rife_rafe_backend.Data.Migrations
                     b.ToTable("DocumentType");
                 });
 
+            modelBuilder.Entity("rife_rafe_backend.Data.Entities.Evaluation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("EvaluatorId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("calification")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EvaluatorId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Evaluation");
+                });
+
+            modelBuilder.Entity("rife_rafe_backend.Data.Entities.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("MessageTxt")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReceivedId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("SenderId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReceivedId");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("Message");
+                });
+
+            modelBuilder.Entity("rife_rafe_backend.Data.Entities.Offer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("ClosingDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TradePrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Offer");
+                });
+
+            modelBuilder.Entity("rife_rafe_backend.Data.Entities.OfferAuction", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("OfferId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OfferId");
+
+                    b.ToTable("OfferAuction");
+                });
+
+            modelBuilder.Entity("rife_rafe_backend.Data.Entities.OfferRaffle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("OfferId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OfferId");
+
+                    b.ToTable("OfferRaffle");
+                });
+
+            modelBuilder.Entity("rife_rafe_backend.Data.Entities.Payment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Method")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PaymentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Payment");
+                });
+
             modelBuilder.Entity("rife_rafe_backend.Data.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -205,9 +397,6 @@ namespace rife_rafe_backend.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("IdUser")
-                        .HasColumnType("int");
-
                     b.Property<string>("TermsAndConditions")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -217,14 +406,17 @@ namespace rife_rafe_backend.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("UserId")
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId1")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId1");
 
                     b.ToTable("Product");
                 });
@@ -270,7 +462,7 @@ namespace rife_rafe_backend.Data.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int?>("DocumentTypeId")
+                    b.Property<int>("DocumentTypeId")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -395,6 +587,84 @@ namespace rife_rafe_backend.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("rife_rafe_backend.Data.Entities.Applicants", b =>
+                {
+                    b.HasOne("rife_rafe_backend.Data.Entities.Offer", "Offer")
+                        .WithMany("Applicants")
+                        .HasForeignKey("OfferId");
+
+                    b.HasOne("rife_rafe_backend.Data.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Offer");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("rife_rafe_backend.Data.Entities.Evaluation", b =>
+                {
+                    b.HasOne("rife_rafe_backend.Data.Entities.User", "Evaluator")
+                        .WithMany("Evaluator")
+                        .HasForeignKey("EvaluatorId");
+
+                    b.HasOne("rife_rafe_backend.Data.Entities.User", "User")
+                        .WithMany("Evaluation")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Evaluator");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("rife_rafe_backend.Data.Entities.Message", b =>
+                {
+                    b.HasOne("rife_rafe_backend.Data.Entities.User", "Received")
+                        .WithMany("Received")
+                        .HasForeignKey("ReceivedId");
+
+                    b.HasOne("rife_rafe_backend.Data.Entities.User", "Sender")
+                        .WithMany("Sender")
+                        .HasForeignKey("SenderId");
+
+                    b.Navigation("Received");
+
+                    b.Navigation("Sender");
+                });
+
+            modelBuilder.Entity("rife_rafe_backend.Data.Entities.Offer", b =>
+                {
+                    b.HasOne("rife_rafe_backend.Data.Entities.Product", "Product")
+                        .WithMany("Offer")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("rife_rafe_backend.Data.Entities.OfferAuction", b =>
+                {
+                    b.HasOne("rife_rafe_backend.Data.Entities.Offer", "Offer")
+                        .WithMany()
+                        .HasForeignKey("OfferId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Offer");
+                });
+
+            modelBuilder.Entity("rife_rafe_backend.Data.Entities.OfferRaffle", b =>
+                {
+                    b.HasOne("rife_rafe_backend.Data.Entities.Offer", "Offer")
+                        .WithMany()
+                        .HasForeignKey("OfferId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Offer");
+                });
+
             modelBuilder.Entity("rife_rafe_backend.Data.Entities.Product", b =>
                 {
                     b.HasOne("rife_rafe_backend.Data.Entities.Category", "Category")
@@ -405,7 +675,7 @@ namespace rife_rafe_backend.Data.Migrations
 
                     b.HasOne("rife_rafe_backend.Data.Entities.User", "User")
                         .WithMany("Product")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId1");
 
                     b.Navigation("Category");
 
@@ -426,8 +696,10 @@ namespace rife_rafe_backend.Data.Migrations
             modelBuilder.Entity("rife_rafe_backend.Data.Entities.User", b =>
                 {
                     b.HasOne("rife_rafe_backend.Data.Entities.DocumentType", "DocumentType")
-                        .WithMany()
-                        .HasForeignKey("DocumentTypeId");
+                        .WithMany("Users")
+                        .HasForeignKey("DocumentTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("DocumentType");
                 });
@@ -437,14 +709,34 @@ namespace rife_rafe_backend.Data.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("rife_rafe_backend.Data.Entities.DocumentType", b =>
+                {
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("rife_rafe_backend.Data.Entities.Offer", b =>
+                {
+                    b.Navigation("Applicants");
+                });
+
             modelBuilder.Entity("rife_rafe_backend.Data.Entities.Product", b =>
                 {
+                    b.Navigation("Offer");
+
                     b.Navigation("ProductPhoto");
                 });
 
             modelBuilder.Entity("rife_rafe_backend.Data.Entities.User", b =>
                 {
+                    b.Navigation("Evaluation");
+
+                    b.Navigation("Evaluator");
+
                     b.Navigation("Product");
+
+                    b.Navigation("Received");
+
+                    b.Navigation("Sender");
                 });
 #pragma warning restore 612, 618
         }

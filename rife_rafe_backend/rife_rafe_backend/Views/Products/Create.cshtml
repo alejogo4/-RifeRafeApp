@@ -9,16 +9,23 @@
 
 <h4>Product</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+<form id="product" onsubmit="save(); return false;">
+    <div class="row">
+        <div class="col-md-12">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group col-sm-4">
                 <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-sm-4">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" asp-items="@(new SelectList((List<rife_rafe_backend.Data.Entities.Category>)ViewData["CategoryId"], "Id", "Name"))" class="custom-select">
+                    <option>Seleccione</option>
+                </select>
+                <span asp-validation-for="Features" class="text-danger"></span>
+            </div>
+            <div class="form-group col-sm-4">
                 <label asp-for="Features" class="control-label"></label>
                 <textarea asp-for="Features" class="form-control"></textarea>
                 <span asp-validation-for="Features" class="text-danger"></span>
@@ -36,9 +43,9 @@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
-        </form>
+        </div>
     </div>
-</div>
+</form>
 
 <div>
     <a asp-action="Index">Back to List</a>
@@ -46,4 +53,29 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        var UrlSave = '/api/Products'
+        function save() {
+            if ($("#product").valid()) {
+                $.ajax({
+                    "url": UrlSave,
+                    "method": "POST",
+                    "headers": {
+                        "Content-Type": "application/json"
+                    },
+                    "data": JSON.stringify({
+                        "CategoryId": $("select[name=CategoryId]").val(),
+                        "Title": $("input[name=Title]").val(),
+                        "Features": $("textarea[name=Features]").val(),
+                        "Description": $("textarea[name=Description]").val(),
+                        "TermsAndConditions": $("textarea[name=TermsAndConditions]").val(),
+                    }),
+                }).done(function (response) {
+                    console.log(response);
+                });
+            }
+
+        }
+    </script>
 }
