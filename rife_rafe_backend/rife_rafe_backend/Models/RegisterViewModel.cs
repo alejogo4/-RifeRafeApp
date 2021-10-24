@@ -1,4 +1,5 @@
-﻿using rife_rafe_backend.Common.Enums;
+﻿using Microsoft.AspNetCore.Http;
+using rife_rafe_backend.Common.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -46,6 +47,9 @@ namespace rife_rafe_backend.Models
         [Display(Name = "Dirección")]
         [MaxLength(100, ErrorMessage = "El campo {0} no puede tener más de {1} carácteres.")]
         public string Address { get; set; }
+
+        [Display(Name = "Foto")]
+        public IFormFile ImageFile { get; set; }
 
         [Display(Name = "Foto")]
         public Guid ImageId { get; set; }

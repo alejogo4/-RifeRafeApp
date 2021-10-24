@@ -15,11 +15,11 @@ namespace rife_rafe_backend.Data.Entities
 
         [Display(Name = "Precio inicial de la subasta")]
         [DisplayFormat(DataFormatString = "{0:C2}")]
-        public decimal BasePrice;
+        public decimal BasePrice { get; set; }
 
         [Display(Name = "Intervalos minimos de subasta")]
         [DisplayFormat(DataFormatString = "{0:C2}")]
-        public decimal Ratio;
+        public decimal Ratio { get; set; }
 
         public Offer Offer { get; set; }
     }

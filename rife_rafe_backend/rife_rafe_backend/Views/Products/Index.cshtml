@@ -16,6 +16,9 @@
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Features)
             </th>
             <th>
@@ -24,10 +27,14 @@
             <th>
                 @Html.DisplayNameFor(model => model.TermsAndConditions)
             </th>
+            <th>
+                Tipo de Oferta
+            </th>
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="tbodyProducts">
+
     </tbody>
 </table>
 
@@ -43,7 +50,22 @@
                     "Content-Type": "application/json"
                 },
             }).done(response => {
-                console.log(response);
+                if (response?.items) {
+                    $("#tbodyProducts").html();
+                    response.items.map(e => {
+                        $("#tbodyProducts").append(`<tr>
+                            <td>${e.title}</td>
+                            <td>${e.category.name}</td>
+                            <td>${e.features}</td>
+                            <td>${e.description}</td>
+                            <td>${e.termsAndConditions}</td>
+                            <td>${e.offer}</td>
+                            <td>
+                                    
+                            </td>
+                         </tr>`);
+                    });
+                }
             });
         });
     </script>

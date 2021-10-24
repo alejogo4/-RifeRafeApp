@@ -12,8 +12,7 @@ using rife_rafe_backend.Data.Entities;
 using rife_rafe_backend.Helpers;
 using System;
 using System.Text;
-
-
+using System.Text.Json.Serialization;
 
 namespace rife_rafe_backend
 {
@@ -84,8 +83,6 @@ namespace rife_rafe_backend
             services.AddScoped<IMailHelper, MailHelper>();
             services.AddScoped<IBlobHelper, BlobHelper>();
 
-
-
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
@@ -118,7 +115,7 @@ namespace rife_rafe_backend
                 endpoints.MapControllers();
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Auth}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

@@ -24,6 +24,8 @@ namespace rife_rafe_backend.Data.Entities
         [DisplayFormat(DataFormatString = "{0:C2}")]
         public decimal TradePrice { get; set; }
 
+        public string OfferType { get; set; }
+
         public virtual ICollection<Applicants> Applicants { get; set; }
 
         public Product Product { get; set; }

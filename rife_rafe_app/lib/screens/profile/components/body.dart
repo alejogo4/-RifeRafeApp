@@ -13,27 +13,17 @@ class Body extends StatelessWidget {
           ProfilePic(),
           SizedBox(height: 20),
           ProfileMenu(
-            text: "My Account",
+            text: "Mi Cuenta",
             icon: "assets/icons/User Icon.svg",
             press: () => {},
           ),
           ProfileMenu(
-            text: "Notifications",
-            icon: "assets/icons/Bell.svg",
+            text: "Menssages",
+            icon: "assets/icons/Chat.svg",
             press: () {},
           ),
           ProfileMenu(
-            text: "Settings",
-            icon: "assets/icons/Settings.svg",
-            press: () {},
-          ),
-          ProfileMenu(
-            text: "Help Center",
-            icon: "assets/icons/Question mark.svg",
-            press: () {},
-          ),
-          ProfileMenu(
-            text: "Log Out",
+            text: "Cerrar sesión",
             icon: "assets/icons/Log out.svg",
             press: () {},
           ),

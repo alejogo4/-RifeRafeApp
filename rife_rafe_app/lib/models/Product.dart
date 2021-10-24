@@ -38,8 +38,8 @@ List<Product> demoProducts = [
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Wireless Controller for PS4™",
-    price: 64.99,
+    title: "Control para PS4™",
+    price: 120.000,
     description: description,
     rating: 4.8,
     isFavourite: true,
@@ -56,8 +56,8 @@ List<Product> demoProducts = [
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Nike Sport White - Man Pant",
-    price: 50.5,
+    title: "Pnatalon de Nike ",
+    price: 160.000,
     description: description,
     rating: 4.1,
     isPopular: true,
@@ -73,8 +73,8 @@ List<Product> demoProducts = [
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Gloves XC Omega - Polygon",
-    price: 36.55,
+    title: "Guantes deportivos",
+    price: 89.000,
     description: description,
     rating: 4.1,
     isFavourite: true,
@@ -99,5 +99,4 @@ List<Product> demoProducts = [
   ),
 ];
 
-const String description =
-    "Wireless Controller for PS4™ gives you what you want in your gaming from over precision control your games to sharing …";
+const String description = "Descriocion del producto para algun item";

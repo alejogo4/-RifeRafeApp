@@ -3,12 +3,12 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1>Registro</h1>
 
-<form id="register" method="post" onsubmit="register(); return false;">
+<form id="register" method="post"enctype="multipart/form-data" onsubmit="register(); return false;">
     <div class="row">
         <div class="col-md-12">
-            <h4>Create a new account.</h4>
+            <h4>Crear una cuenta nueva.</h4>
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="row">
@@ -24,10 +24,11 @@
                     <input asp-for="Document" class="form-control" />
                     <span asp-validation-for="Document" class="text-danger"></span>
                 </div>
+  
                 <div class="form-group col-sm-4">
-                    <label asp-for="ImageId"></label>
-                    <input asp-for="ImageId" class="form-control" />
-                    <span asp-validation-for="ImageId" class="text-danger"></span>
+                    <label asp-for="ImageFile" class="control-label"></label>
+                    <input asp-for="ImageFile" type="file" class="form-control" />
+                    <span asp-validation-for="ImageFile" class="text-danger"></span>
                 </div>
                 <div class="form-group col-sm-4">
                     <label asp-for="FirstName"></label>
@@ -60,7 +61,7 @@
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="submit" class="btn btn-primary">Registrarme</button>
 
         </div>
 
@@ -72,25 +73,35 @@
     <script>
         function register() {
             if ($("#register").valid()) {
+
+                var formData = new FormData();
+                formData.append('ImageFile', $('input[name=ImageFile]')[0].files[0]);
+                formData.append('Email', $("input[name=Email]").val());
+                formData.append("Password", $("input[name=Password]").val());
+                formData.append("DocumentTypeId", $("select[name=DocumentTypeId]").val());
+                formData.append("Document", $("input[name=Document]").val());
+                formData.append("FirstName", $("input[name=FirstName]").val());
+                formData.append("LastName", $("input[name=LastName]").val());
+                formData.append("Address", $("input[name=Address]").val());
+                formData.append("PhoneNumber", $("input[name=PhoneNumber]").val());
+
                 $.ajax({
                     url: '/api/auth/register',
                     type: 'post',
                     dataType: 'json',
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    data: JSON.stringify({
-                        "Email": $("input[name=Email]").val(),
-                        "Password": $("input[name=Password]").val(),
-                        "DocumentTypeId": $("select[name=DocumentTypeId]").val(),
-                        "Document": $("input[name=Document]").val(),
-                        "FirstName": $("input[name=FirstName]").val(),
-                        "LastName": $("input[name=LastName]").val(),
-                        "Address": $("input[name=Address]").val(),
-                        "PhoneNumber": $("input[name=PhoneNumber]").val()
-                    }),
+                    contentType:false,
+                    processData:false,
+                    data: formData,
                 }).done(response => {
                     if (response?.status) {
+                        $("input[name=Email]").val("");
+                        $("input[name=Password]").val("");
+                        $("select[name=DocumentTypeId]").val("");
+                        $("input[name=Document]").val("");
+                        $("input[name=FirstName]").val("");
+                        $("input[name=LastName]").val("");
+                        $("input[name=Address]").val("");
+                        $("input[name=PhoneNumber]").val("");
                         toastr.success('Registro realizado correctamente, revisa el correo')
                     }
                 });

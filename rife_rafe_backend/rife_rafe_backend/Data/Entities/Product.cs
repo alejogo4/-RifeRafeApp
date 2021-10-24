@@ -35,9 +35,6 @@ namespace rife_rafe_backend.Data.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public string TermsAndConditions { get; set; }
 
-        public virtual ICollection<ProductPhoto> ProductPhoto { get; set; }
-
-        public virtual ICollection<Offer> Offer { get; set; }
 
         [Display(Name = "# Fotos")]
         public int ProductPhotosCount => ProductPhoto == null ? 0 : ProductPhoto.Count;
@@ -47,9 +44,15 @@ namespace rife_rafe_backend.Data.Entities
             ? $"https://vehicleszulu.azurewebsites.net/images/noimage.png"
             : ProductPhoto.FirstOrDefault().ImageFullPath;
 
+        [JsonIgnore]
+        public virtual ICollection<ProductPhoto> ProductPhoto { get; set; }
+
+        [JsonIgnore]
+        public virtual ICollection<Offer> Offer { get; set; }
 
         [JsonIgnore]
         public User User { get; set; }
+
         [JsonIgnore]
         public Category Category { get; set; }
     }

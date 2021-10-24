@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rife_rafe_app/size_config.dart';
 
-const kPrimaryColor = Color(0xFFFF7643);
-const kPrimaryLightColor = Color(0xFFFFECDF);
+const kPrimaryColor = Color(0xFFA68524);
+const kPrimaryLightColor = Color(0xFFF2CA52);
 const kPrimaryGradientColor = LinearGradient(
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,
@@ -25,14 +25,15 @@ const defaultDuration = Duration(milliseconds: 250);
 // Form Error
 final RegExp emailValidatorRegExp =
     RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
-const String kEmailNullError = "Please Enter your email";
-const String kInvalidEmailError = "Please Enter Valid Email";
-const String kPassNullError = "Please Enter your password";
-const String kShortPassError = "Password is too short";
-const String kMatchPassError = "Passwords don't match";
-const String kNamelNullError = "Please Enter your name";
-const String kPhoneNumberNullError = "Please Enter your phone number";
-const String kAddressNullError = "Please Enter your address";
+const String kEmailNullError = "Porfavor ingrese un email";
+const String kInvalidEmailError = "Por favor ingrese un email valido";
+const String kPassNullError = "Debes ingresar una contraseña";
+const String kShortPassError = "La contraseña es demasiado corta";
+const String kMatchPassError = "Contraseñas no coinciden";
+const String kNamelNullError = "Porfavor ingresa un nombre";
+const String kPhoneNumberNullError = "Por favor ingresa un numero telefonico";
+const String kAddressNullError =
+    "Porfavor ingresa la dirección de correo electronico";
 
 final otpInputDecoration = InputDecoration(
   contentPadding:

@@ -16,16 +16,16 @@ namespace rife_rafe_backend.Data.Entities
         [Display(Name = "Precio de la boleta")]
         [DisplayFormat(DataFormatString = "{0:C2}")]
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        public decimal Price;
+        public decimal Price { get; set; }
 
         [Display(Name = "¿De cuantos digitos es la boleta?")]
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        public int Digits;
+        public int Digits { get; set; }
 
         [Display(Name = "Información adicional")]
         [DataType(DataType.MultilineText)]
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        public string AdditionalInfo;
+        public string AdditionalInfo { get; set; }
 
         public Offer Offer { get; set; }
     }

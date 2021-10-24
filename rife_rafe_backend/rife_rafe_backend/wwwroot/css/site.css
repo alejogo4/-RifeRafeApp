@@ -70,66 +70,66 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
+/*==========================LIST PRODCUTS=====================================*/
 
-/* ============================== PRODUCTOS =========================*/
-
-
-.products-container .card {
+.list-products .card {
     width: 250px;
-    border-radius: 10px
+    border-radius: 10px;
 }
 
-.products-container .card-img-top {
+.list-products .card-img-top {
     border-top-right-radius: 10px;
-    border-top-left-radius: 10px
+    border-top-left-radius: 10px;
 }
 
-.products-container span.text-muted {
-    font-size: 12px
+.list-products span.text-muted {
+    font-size: 12px;
 }
 
-.products-container small.text-muted {
-    font-size: 8px
+.list-products small.text-muted {
+    font-size: 10px;
 }
 
-.products-container h5.mb-0 {
-    font-size: 1rem
+.list-products h5.mb-0 {
+    font-size: 1rem;
 }
 
-.products-container small.ghj {
-    font-size: 9px
+.list-products small.ghj {
+    font-size: 9px;
 }
 
-.products-container .mid {
-    background: #ECEDF1
+.list-products .mid {
+    background: #ecedf1;
 }
 
-h6.ml-1 {
-    font-size: 13px
+.list-products h6.ml-1 {
+    font-size: 13px;
 }
 
-.products-container small.key {
+.list-products small.key {
     text-decoration: underline;
     font-size: 9px;
-    cursor: pointer
+    cursor: pointer;
 }
 
-.products-container .btn-danger {
-    color: #FFCBD2
+.list-products .btn-danger {
+    color: #ffcbd2;
 }
 
-    .products-container .btn-danger:focus {
-        box-shadow: none
+    .list-products .btn-danger:focus {
+        box-shadow: none;
     }
 
-.products-container small.justify-content-center {
+.list-products small.justify-content-center {
     font-size: 9px;
     cursor: pointer;
-    text-decoration: underline
+    text-decoration: underline;
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
     .col-sm-4 {
-        margin-bottom: 50px
+        margin-bottom: 50px;
     }
 }
+
+/*==========================LIST PRODCUTS=====================================*/

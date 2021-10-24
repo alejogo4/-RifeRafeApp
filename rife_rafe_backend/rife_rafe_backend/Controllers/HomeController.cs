@@ -21,7 +21,7 @@ namespace rife_rafe_backend.Controllers
 
         public IActionResult Index()
         {
-            return this.validateSession("index");
+            return View();
         }
 
         public IActionResult Privacy()

@@ -1,4 +1,4 @@
-﻿@model rife_rafe_backend.Data.Entities.Product
+﻿@model rife_rafe_backend.Models.ProductViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -9,40 +9,98 @@
 
 <h4>Product</h4>
 <hr />
-<form id="product" onsubmit="save(); return false;">
+<form id="product" method="post">
     <div class="row">
-        <div class="col-md-12">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group col-sm-4">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group col-sm-4">
+            <label asp-for="Title" class="control-label"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label asp-for="CategoryId" class="control-label"></label>
+            <select asp-for="CategoryId" asp-items="@(new SelectList((List<rife_rafe_backend.Data.Entities.Category>)ViewData["CategoryId"], "Id", "Name"))" class="custom-select">
+                <option>Seleccione</option>
+            </select>
+            <span asp-validation-for="Features" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label asp-for="ImageFile" class="control-label"></label>
+            <input asp-for="ImageFile" multiple type="file" class="form-control" />
+            <span asp-validation-for="ImageFile" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label asp-for="Features" class="control-label"></label>
+            <textarea asp-for="Features" class="form-control"></textarea>
+            <span asp-validation-for="Features" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label asp-for="Description" class="control-label"></label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label asp-for="TermsAndConditions" class="control-label"></label>
+            <textarea asp-for="TermsAndConditions" class="form-control"></textarea>
+            <span asp-validation-for="TermsAndConditions" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label asp-for="OffertType" class="control-label"></label>
+            <select asp-for="OffertType" class="custom-select" onchange="changeOfferType(this)">
+                <option>Seleccione</option>
+                <option value="1">Rifa</option>
+                <option value="2">Subasta</option>
+            </select>
+            <span asp-validation-for="OffertType" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label asp-for="ClosingDate" class="control-label"></label>
+            <input asp-for="ClosingDate" class="form-control" />
+            <span asp-validation-for="ClosingDate" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label asp-for="TradePrice" class="control-label"></label>
+            <input asp-for="TradePrice" class="form-control" />
+            <span asp-validation-for="TradePrice" class="text-danger"></span>
+        </div>
+
+        <div id="auction" class="col-sm-12" style="display: none">
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label asp-for="BasePrice" class="control-label"></label>
+                    <input asp-for="BasePrice" class="form-control" />
+                    <span asp-validation-for="BasePrice" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label asp-for="Ratio" class="control-label"></label>
+                    <input asp-for="Ratio" class="form-control" />
+                    <span asp-validation-for="Ratio" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group col-sm-4">
-                <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" asp-items="@(new SelectList((List<rife_rafe_backend.Data.Entities.Category>)ViewData["CategoryId"], "Id", "Name"))" class="custom-select">
-                    <option>Seleccione</option>
-                </select>
-                <span asp-validation-for="Features" class="text-danger"></span>
+        </div>
+
+        <div id="raffle" class="col-sm-12" style="display: none">
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label asp-for="Digits" class="control-label"></label>
+                    <input asp-for="Digits" class="form-control" />
+                    <span asp-validation-for="Digits" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label asp-for="AdditionalInfo" class="control-label"></label>
+                    <textarea asp-for="AdditionalInfo" class="form-control"></textarea>
+                    <span asp-validation-for="AdditionalInfo" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group col-sm-4">
-                <label asp-for="Features" class="control-label"></label>
-                <textarea asp-for="Features" class="form-control"></textarea>
-                <span asp-validation-for="Features" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <textarea asp-for="Description" class="form-control"></textarea>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TermsAndConditions" class="control-label"></label>
-                <textarea asp-for="TermsAndConditions" class="form-control"></textarea>
-                <span asp-validation-for="TermsAndConditions" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+        </div>
+
+        <div class="form-group col-sm-12">
+            <input type="button" value="Create" onclick="save();" class="btn btn-primary float-right" />
         </div>
     </div>
 </form>
@@ -55,27 +113,54 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
     <script>
+
+        function changeOfferType(e) {
+            let item = $(e).val();
+            if (item == "1") {
+                $("#auction").show();
+                $("#raffle").hide();
+            } else {
+                $("#auction").hide();
+                $("#raffle").show();
+            }
+        }
+
         var UrlSave = '/api/Products'
         function save() {
             if ($("#product").valid()) {
+                var formData = new FormData();
+
+                let images = $('input[name=ImageFile]')[0].files;
+                for (var i = 0; i < images.length; i++) {
+                    formData.append(`ImageFile`, images[i]);
+                }
+
+                formData.append("CategoryId", $("select[name=CategoryId]").val());
+                formData.append("OffertType", $("select[name=OffertType]").val());
+                formData.append("ClosingDate", $("input[name=ClosingDate]").val());
+                formData.append("TradePrice", $("input[name=TradePrice]").val());
+                formData.append("Title", $("input[name=Title]").val());
+                formData.append("Features", $("textarea[name=Features]").val());
+                formData.append("Description", $("textarea[name=Description]").val());
+                formData.append("TermsAndConditions", $("textarea[name=TermsAndConditions]").val());
+
+                formData.append("BasePrice", $("input[name=BasePrice]").val());
+                formData.append("Ratio", $("input[name=Ratio]").val());
+                formData.append("Price", $("input[name=Price]").val());
+                formData.append("Digits", $("input[name=Digits]").val());
+                formData.append("AdditionalInfo", $("textarea[name=AdditionalInfo]").val());
+
                 $.ajax({
-                    "url": UrlSave,
-                    "method": "POST",
-                    "headers": {
-                        "Content-Type": "application/json"
-                    },
-                    "data": JSON.stringify({
-                        "CategoryId": $("select[name=CategoryId]").val(),
-                        "Title": $("input[name=Title]").val(),
-                        "Features": $("textarea[name=Features]").val(),
-                        "Description": $("textarea[name=Description]").val(),
-                        "TermsAndConditions": $("textarea[name=TermsAndConditions]").val(),
-                    }),
+                    url: UrlSave,
+                    method: "POST",
+                    contentType: false,
+                    processData: false,
+                    data: formData
                 }).done(function (response) {
                     console.log(response);
                 });
             }
-
+            return false;
         }
     </script>
 }
