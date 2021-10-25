@@ -53,7 +53,8 @@ rife_rafe_app/android/app/release
 /android/app/profile
 /android/app/release
 
-
+**/rife_rafe_backend/obj/*
+**/rife_rafe_backend/Release/
 
 #C# IGNORE ===================================
 
